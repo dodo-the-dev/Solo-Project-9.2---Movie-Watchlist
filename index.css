@@ -5,6 +5,7 @@ body {
   color:#fff;
   width: 550px;
   background-color: #121212;
+  margin: auto;
 }
 
 /* Header styles */
@@ -21,6 +22,7 @@ header #title{
   margin-left:42px;
   display: flex;
   gap: 150px;
+  padding-top: 50px;
 }
 
 header>h1 {
@@ -30,4 +32,58 @@ header>h1 {
 
 header a {
   align-self:center;
+  text-decoration: none;
+  color: inherit;
+}
+
+header #search{
+  border: solid 1px #2e2e2f;
+  background-color: #2e2e2f;
+  padding: 2px;
+  width: 460px;
+  margin-left: 40px;
+  margin-top: 60px;
+}
+
+header input {
+  height: 100%;
+  margin: 0;
+  padding:0;
+  width:340px;
+  background-color:#2e2e2f;
+  border: none;
+}
+
+header img {
+  padding-left:5px;
+}
+header button {
+  height: 100%;
+  border: none;
+  background-color:#2e2e2f;
+  color: #fff;
+  font-weight: 500;
+  font-size: 14px;
+  padding-bottom: 5px;
+  padding-left: 20px;
+}
+
+/* Body styling */
+
+#search-results {
+  display: flex;
+  flex-direction: column;
+  height: 700px;
+  align-items: center;
+  justify-content: center;
+}
+
+#search-results img {
+  width: 70px
+}
+
+#search-results p {
+  color: #2e2e2f;
+  font-weight: 700;
+  font-size: 18px;
 }
