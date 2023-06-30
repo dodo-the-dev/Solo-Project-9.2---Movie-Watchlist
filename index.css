@@ -39,7 +39,7 @@ header a {
 header #search{
   border: solid 1px #2e2e2f;
   background-color: #2e2e2f;
-  padding: 2px;
+  padding: 5px;
   width: 460px;
   margin-left: 40px;
   margin-top: 60px;
@@ -56,6 +56,7 @@ header input {
 
 header img {
   padding-left:5px;
+  padding-top: 5px;
 }
 header button {
   height: 100%;
