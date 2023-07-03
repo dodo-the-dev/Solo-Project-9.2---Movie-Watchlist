@@ -14,15 +14,19 @@
   </head>
   <body>
     <header>
-      <h1>My Watchlist</h1>
-      <a href="index.html">Search for movies</a>
+      <div id="title">
+        <h1>My Watchlist</h1>
+        <a href="index.html">Search for Movies</a>
+      </div>
     </header>
     <section id="search-results">
-      <p>Your watchlist is looking a little empty...</p>
-      <a href="index.html"
-        ><img src="img/Iconplus.png" alt="plus icon" />
-        <p>Let's add some movies!</p></a
-      >
+      <div class="empty-results">
+        <p>Your watchlist is looking a little empty...</p>
+        <a href="index.html" id="add-movies"
+          ><img src="img/Iconplus.png" alt="plus icon" />
+          <p>Let's add some movies!</p></a
+        >
+      </div>
     </section>
   </body>
 </html>
