@@ -12,7 +12,7 @@ body {
 header {
   display: flex;
   flex-direction: column;
-  background-image:url("img/image\ 36.png");
+  background-image:url("img/background-image.png");
   background-repeat: no-repeat;
   background-size: cover;
   height: 208px;
@@ -101,4 +101,20 @@ header button {
 #add-movies img {
   align-self: center;
   width: 18px;
+}
+
+/* Search results */
+
+.result-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header{
+  display: flex;
+}
+
+.header img {
+  border: solid red 1 px;
 }
