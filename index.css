@@ -49,9 +49,10 @@ header #search{
 header input {
   height: 100%;
   margin: 0;
-  padding:0;
+  padding:0 10px;
   width:340px;
   background-color:#2e2e2f;
+  color:inherit;
   border: none;
 }
 
@@ -80,17 +81,17 @@ header button {
   justify-content: center;
 }
 
-#search-results img {
+#search-results > img {
   width: 70px
 }
 
-#search-results p {
+#search-results > p {
   color: #2e2e2f;
   font-weight: 700;
   font-size: 18px;
 }
 
-.empty-results a {
+.empty-results > a {
   display: flex;
   gap: 10px;
   justify-content: center;
@@ -105,16 +106,16 @@ header button {
 
 /* Search results */
 
-.result-container {
+.result-container, .header, .movie-data {
   display: flex;
-  justify-content: center;
   align-items: center;
+  gap: 15px;
 }
 
-.header{
-  display: flex;
+.result-container > img {
+  width: 150px;
 }
 
-.header img {
-  border: solid red 1 px;
+.icon {
+  height: 18px;
 }
