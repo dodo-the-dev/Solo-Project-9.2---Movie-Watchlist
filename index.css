@@ -23,7 +23,6 @@ header #title{
   display: flex;
   justify-content: space-between;
   padding-top: 50px;
-  /* align-items: center; */
 }
 
 header h1 {
