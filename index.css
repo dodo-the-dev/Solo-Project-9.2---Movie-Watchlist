@@ -76,13 +76,14 @@ header button {
 #search-results {
   display: flex;
   flex-direction: column;
-  height: 700px;
   align-items: center;
   justify-content: center;
+  margin-top: 2rem;
 }
 
 #search-results > img {
-  width: 70px
+  width: 70px;
+  margin-top: 15rem;
 }
 
 #search-results > p {
@@ -109,13 +110,24 @@ header button {
 .result-container, .header, .movie-data {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 1rem;
+  margin-top: 1rem;
 }
 
 .result-container > img {
   width: 150px;
 }
 
+.result-container {
+  border-bottom: solid 2px #2e2e2f
+}
+
 .icon {
   height: 18px;
+}
+
+#add-to-watchlist {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
