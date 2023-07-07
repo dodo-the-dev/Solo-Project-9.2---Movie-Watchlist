@@ -68,6 +68,12 @@ header button {
   font-size: 14px;
   padding-bottom: 5px;
   padding-left: 20px;
+  cursor: pointer;
+}
+
+header button:active{
+  background-color: #fff;
+  color:#2e2e2f;
 }
 
 /* Body styling */
@@ -99,6 +105,10 @@ header button {
   cursor: pointer;  
 }
 
+.empty-results > a:visited {
+  color:#fff;
+}
+
 #add-movies img {
   align-self: center;
   width: 18px;
@@ -125,8 +135,9 @@ header button {
   height: 18px;
 }
 
-#add-to-watchlist {
+.add-to-watchlist {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  cursor: pointer;
 }
