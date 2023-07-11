@@ -1,6 +1,6 @@
 const searchResults = document.getElementById('search-results');
 const searchForm = document.getElementById('search');
-const addToWatchlist = document.getElementsByClassName('add-to-watchlist');
+// const addToWatchlist = document.getElementsByClassName('add-to-watchlist');
 
 searchForm.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -29,7 +29,7 @@ searchForm.addEventListener('submit', (e) => {
                 <div class="movie-data">
                   <p>${data.Runtime}</p>
                   <p>${data.Genre}</p>
-                  <div class="add-to-watchlist" id="add-${data.imdbID}">
+                  <div class="add-to-watchlist" id="${data.imdbID}">
                     <img src="img/icon-plus.png" alt="plus icon" class="add-to-watchlist">
                     <p class="add-to-watchlist">Watchlist</p>
                   </div>
@@ -42,26 +42,20 @@ searchForm.addEventListener('submit', (e) => {
       }
     });
 });
-
-// addToWatchlist.addEventListener("click", function(){console.log("Added")})
+let watchlistFilms = [];
 
 document.addEventListener('click', function (e) {
-  if (e.target.id == `add-${e.target.id}`) {
-    console.log('added');
-    console.log(addToWatchlist[e.target.id])
-    addToWatchlist[e.target.id].innerHTML = `
-      <img src="img/icon-minus" alt="icon-minus">
-      <p>Remove</p>
-    `
+  if (e.target.className === `add-to-watchlist`) {
+    let targetId = e.target.parentElement.id;
+    console.log(targetId);
+    document.getElementById(e.target.parentElement.id).innerHTML = `
+      <img class="remove-from-watchlist" src="img/icon-minus.png" alt="icon-minus">
+      <p class="remove-from-watchlist">Remove</p>
+    `;
+    // console.log(targetId);
+    watchlistFilms.push(targetId);
+    console.log(watchlistFilms);
   } else {
     console.log('click elsewhere');
   }
 });
-
-// function handleAdd() {
-//   document
-//     .getElementsByClassName('add-to-watchlist')
-//     .addEventListener('click', function () {
-//       console.log('added');
-//     });
-// }
