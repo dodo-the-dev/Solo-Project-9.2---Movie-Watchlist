@@ -2,21 +2,21 @@ const searchResults = document.getElementById('search-results');
 const searchForm = document.getElementById('search');
 // const addToWatchlist = document.getElementsByClassName('add-to-watchlist');
 
-// searchForm.addEventListener('submit', (e) => {
-//   e.preventDefault();
-//   const searchEntry = document.getElementById('search-input').value;
-//   fetch(`http://www.omdbapi.com/?apikey=57c7dfb6&s=${searchEntry}&page=1`)
-//     .then((res) => res.json())
-//     .then((data) => {
-//       const movieIDs = data.Search.map(function (movie) {
-//         return movie.imdbID;
-//       });
-//       // console.log(movieIDs)
-//       searchResults.innerHTML = '';
-//       renderFilmList(movieIDs)
-//       }
-//     );
-//     })
+searchForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const searchEntry = document.getElementById('search-input').value;
+  fetch(`http://www.omdbapi.com/?apikey=57c7dfb6&s=${searchEntry}&page=1`)
+    .then((res) => res.json())
+    .then((data) => {
+      const movieIDs = data.Search.map(function (movie) {
+        return movie.imdbID;
+      });
+      // console.log(movieIDs)
+      searchResults.innerHTML = '';
+      renderFilmList(movieIDs)
+      }
+    );
+    })
 
 let movieWatchList = []
 
@@ -38,8 +38,9 @@ document.addEventListener('click', function (e) {
     `
 
     //TODO: use the filter method to find and remove the desired film ID (arr = arr.filter(item => item !== value))
-    movieWatchList.find(id => id===targetId)
-    localStorage.removeItem(`id-${targetId}`, targetId)
+    movieWatchList.find(id => {
+      return id !== targetId})
+    console.log(movieWatchList)
   }
 });
 
