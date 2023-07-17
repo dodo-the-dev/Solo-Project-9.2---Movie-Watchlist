@@ -2,7 +2,8 @@ const searchResults = document.getElementById('search-results');
 const searchForm = document.getElementById('search');
 // const addToWatchlist = document.getElementsByClassName('add-to-watchlist');
 
-searchForm.addEventListener('submit', (e) => {
+if(searchForm){
+  searchForm.addEventListener('submit', (e) => {
   e.preventDefault();
   const searchEntry = document.getElementById('search-input').value;
   fetch(`http://www.omdbapi.com/?apikey=57c7dfb6&s=${searchEntry}&page=1`)
@@ -12,12 +13,10 @@ searchForm.addEventListener('submit', (e) => {
         return movie.imdbID;
       });
       // console.log(movieIDs)
-      searchResults.innerHTML = '';
       renderFilmList(movieIDs)
-      }
-    );
-    })
-
+    });
+});
+}
 let movieWatchList = []
 
 document.addEventListener('click', function (e) {
@@ -25,27 +24,27 @@ document.addEventListener('click', function (e) {
     let targetId = e.target.parentElement.id;
     console.log(targetId);
     e.target.parentElement.innerHTML = `
-      <img class="remove-from-watchlist" src="img/icon-minus.png" alt="icon-minus">
-      <p class="remove-from-watchlist">Remove</p>
+          <img class="remove-from-watchlist" src="img/icon-minus.png" alt="icon-minus">
+          <p class="remove-from-watchlist">Remove</p>
     `;
-    movieWatchList.push(targetId)
-    localStorage.setItem("movieWatchlist",JSON.stringify(movieWatchList))
-  } else if(e.target.className === "remove-from-watchlist"){
-    let targetId = e.target.parentElement.id
-    e.target.parentElement.innerHTML =`
+    movieWatchList.push(targetId);
+    localStorage.setItem('movieWatchlist', JSON.stringify(movieWatchList));
+  } else if (e.target.className === 'remove-from-watchlist') {
+    let targetId = e.target.parentElement.id;
+    e.target.parentElement.innerHTML = `
     <img src="img/icon-plus.png" alt="plus icon" class="add-to-watchlist">
     <p class="add-to-watchlist">Watchlist</p>
-    `
-
-    //TODO: use the filter method to find and remove the desired film ID (arr = arr.filter(item => item !== value))
-    movieWatchList.find(id => {
-      return id !== targetId})
-    console.log(movieWatchList)
+    `;
+    movieWatchList = movieWatchList.filter(id => {
+      return id !== targetId;
+    });
+    console.log(movieWatchList);
+    localStorage.setItem('movieWatchlist', JSON.stringify(movieWatchList));
   }
 });
 
-
-function renderFilmList(movieIDs){
+function renderFilmList(movieIDs) {
+  searchResults.innerHTML = '';
   for (let id of movieIDs) {
     fetch(`http://www.omdbapi.com/?apikey=57c7dfb6&i=${id}`)
       .then((resp) => resp.json())
@@ -64,8 +63,8 @@ function renderFilmList(movieIDs){
               <p>${data.Runtime}</p>
               <p>${data.Genre}</p>
               <div class="add-to-watchlist" id="${data.imdbID}">
-                <img src="img/icon-plus.png" alt="plus icon" class="add-to-watchlist">
-                <p class="add-to-watchlist">Watchlist</p>
+              <img src="img/icon-plus.png" alt="plus icon" class="add-to-watchlist">
+              <p class="add-to-watchlist">Watchlist</p>
               </div>
             </div>
             <p>${data.Plot}</p>
@@ -73,6 +72,7 @@ function renderFilmList(movieIDs){
           </div>
           `;
       });
-}}
+  }
+}
 
-export{renderFilmList}
+export { renderFilmList };
